@@ -41,11 +41,7 @@ public class CustomBookDeserializer extends StdDeserializer<BookApiDTO> {
 
             JsonNode titleApi = apiBook.get("title");
             String title = titleApi == null ? "" : titleApi.asText();
-            bookDto.setTitle(title);
-
-            JsonNode subtitleApi = apiBook.get("subtitle");
-            String subtitle = subtitleApi == null ? "" : subtitleApi.asText();
-            bookDto.setSubtitle(subtitle);
+            bookDto.setBookTitle(title);
 
             JsonNode authorsApi = apiBook.get("authors");
             if (authorsApi != null && authorsApi.isArray()) {
@@ -56,7 +52,7 @@ public class CustomBookDeserializer extends StdDeserializer<BookApiDTO> {
 
             JsonNode numberOfPagesApi = apiBook.get("number_of_pages");
             int numberOfPages = numberOfPagesApi == null ? 0 : numberOfPagesApi.asInt();
-            bookDto.setNumberOfPages(numberOfPages);
+            bookDto.setPages(numberOfPages);
 
 
             JsonNode publishDateApi = apiBook.get("publish_date");

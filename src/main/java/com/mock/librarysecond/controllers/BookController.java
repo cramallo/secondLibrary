@@ -67,6 +67,8 @@ public class BookController {
         List<String> authors = bookApiDTO.getPublishers();
         book.setAuthor(listToString(authors));
 
+        book.setPublishDate(bookApiDTO.getPublishDate());
+
         return book;
     }
 
@@ -81,6 +83,7 @@ public class BookController {
         bookApiDTO.setBookTitle(book.getBookTitle());
         bookApiDTO.setPages(book.getPages());
         bookApiDTO.setPrice(book.getPrice());
+        bookApiDTO.setPublishDate(book.getPublishDate());
 
         List<String> authors = new ArrayList<String>(Arrays.asList(book.getAuthor().split(",")));
         bookApiDTO.setAuthors(authors);
