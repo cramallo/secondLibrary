@@ -32,7 +32,7 @@ public class BookController {
     @Autowired
     private OpenLibraryService openLibraryService;
 
-    @GetMapping("/isbn/{isbn}")
+    @GetMapping("/{isbn}")
     @ApiOperation(value="Giving an isbn, return one book", response = BookApiDTO.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = SwaggerMessages.findSuccess),
@@ -55,21 +55,18 @@ public class BookController {
 
     private Book convertBookApiDtoToEntity(BookApiDTO bookApiDTO){
         Book book = new Book();
-        book.setYear(bookApiDTO.getPublishDate());
-        book.setTitle(bookApiDTO.getTitle());
-        book.setSubtitle(bookApiDTO.getSubtitle());
+        book.setBookTitle(bookApiDTO.getBookTitle());
         book.setPrice(generateRandomPrice());
 
         List<String> publishers = bookApiDTO.getPublishers();
         book.setPublisher(listToString(publishers));
 
-        book.setPages(bookApiDTO.getNumberOfPages());
+        book.setPages(bookApiDTO.getPages());
         book.setIsbn(bookApiDTO.getIsbn());
 
         List<String> authors = bookApiDTO.getPublishers();
         book.setAuthor(listToString(authors));
 
-        book.setImage("");
         return book;
     }
 
@@ -81,10 +78,8 @@ public class BookController {
     private BookApiDTO convertEntityToBookApiDto(Book book){
         BookApiDTO bookApiDTO = new BookApiDTO();
         bookApiDTO.setIsbn(book.getIsbn());
-        bookApiDTO.setTitle(book.getTitle());
-        bookApiDTO.setSubtitle(book.getSubtitle());
-        bookApiDTO.setPublishDate(book.getYear());
-        bookApiDTO.setNumberOfPages(book.getPages());
+        bookApiDTO.setBookTitle(book.getBookTitle());
+        bookApiDTO.setPages(book.getPages());
         bookApiDTO.setPrice(book.getPrice());
 
         List<String> authors = new ArrayList<String>(Arrays.asList(book.getAuthor().split(",")));

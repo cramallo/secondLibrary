@@ -5,13 +5,16 @@ import java.util.List;
 
 public class BookApiDTO {
     private String isbn;
-    private String title;
-    private String subtitle;
-    private List<String> publishers = new ArrayList<String>();
+    private String bookTitle;
     private String publishDate;
-    private int numberOfPages;
+    private int pages;
     private List<String> authors = new ArrayList<String>();
+    private List<String> publishers = new ArrayList<>();
     private float price;
+    private String libraryName = "Seconds Library";
+    private String address = "Rodriguez 168, Lanus Este, Prov.De Bs.As";
+    private String phoneNumber = "1115557896";
+    private String email = "secondsLibrary@gmail.com";
 
     public BookApiDTO(){}
 
@@ -31,44 +34,12 @@ public class BookApiDTO {
         this.price = price;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getSubtitle() {
-        return subtitle;
-    }
-
-    public void setSubtitle(String subtitle) {
-        this.subtitle = subtitle;
-    }
-
-    public List<String> getPublishers() {
-        return publishers;
-    }
-
-    public void setPublishers(List<String> publishers) {
-        this.publishers = publishers;
-    }
-
     public String getPublishDate() {
         return publishDate;
     }
 
     public void setPublishDate(String publishDate) {
         this.publishDate = publishDate;
-    }
-
-    public int getNumberOfPages() {
-        return numberOfPages;
-    }
-
-    public void setNumberOfPages(int numberOfPages) {
-        this.numberOfPages = numberOfPages;
     }
 
     public List<String> getAuthors() {
@@ -84,10 +55,67 @@ public class BookApiDTO {
             this.authors.add(author);
         }
     }
-
     public void addPublisher(String publisher) {
         if (!this.publishers.contains(publisher)) {
             this.publishers.add(publisher);
         }
     }
+
+    public String getBookTitle() {
+        return bookTitle;
+    }
+
+    public void setBookTitle(String bookTitle) {
+        this.bookTitle = bookTitle;
+    }
+
+    public int getPages() {
+        return pages;
+    }
+
+    public void setPages(int pages) {
+        this.pages = pages;
+    }
+
+    public List<String> getPublishers() {
+        return publishers;
+    }
+
+    public void setPublishers(List<String> publishers) {
+        this.publishers = publishers;
+    }
+
+    public String getLibraryName() {
+        return libraryName;
+    }
+
+    public void setLibraryName(String libraryName) {
+        this.libraryName = libraryName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+
 }

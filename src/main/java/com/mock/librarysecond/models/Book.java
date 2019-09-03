@@ -22,15 +22,7 @@ public class Book {
 
     @Column(nullable = false)
     @ApiModelProperty
-    private String image;
-
-    @Column(nullable = false)
-    @ApiModelProperty
-    private String title;
-
-    @Column(nullable = false)
-    @ApiModelProperty
-    private String subtitle;
+    private String bookTitle;
 
     @Column(nullable = false)
     @ApiModelProperty
@@ -38,7 +30,7 @@ public class Book {
 
     @Column(nullable = false)
     @ApiModelProperty
-    private String year;
+    private String publishDate;
 
     @Column(nullable = false)
     @ApiModelProperty
@@ -57,11 +49,9 @@ public class Book {
                 String publisher, String year, int pages, String isbn,float price) {
         this.genre = genre;
         this.author = author;
-        this.image = image;
-        this.title = title;
-        this.subtitle = subtitle;
+        this.bookTitle = title;
         this.publisher = publisher;
-        this.year = year;
+        this.publishDate = year;
         this.pages = pages;
         this.isbn = isbn;
         this.price = price;
@@ -97,44 +87,12 @@ public class Book {
         this.author = author;
     }
 
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getSubtitle() {
-        return subtitle;
-    }
-
-    public void setSubtitle(String subtitle) {
-        this.subtitle = subtitle;
-    }
-
     public String getPublisher() {
         return publisher;
     }
 
     public void setPublisher(String publisher) {
         this.publisher = publisher;
-    }
-
-    public String getYear() {
-        return year;
-    }
-
-    public void setYear(String year) {
-        this.year = year;
     }
 
     public int getPages() {
@@ -151,5 +109,21 @@ public class Book {
 
     public void setIsbn(String isbn) {
         this.isbn = isbn;
+    }
+
+    public String getBookTitle() {
+        return bookTitle;
+    }
+
+    public void setBookTitle(String bookTitle) {
+        this.bookTitle = bookTitle;
+    }
+
+    public String getPublishDate() {
+        return publishDate;
+    }
+
+    public void setPublishDate(String publishDate) {
+        this.publishDate = publishDate;
     }
 }
